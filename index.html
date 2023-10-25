@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Include Bootstrap Datepicker and Timepicker -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=AaZM_ELO27j5QIDXQ1KvTTQi7ESvkkwFTZntJAeuCgBTDdcHIrvAZbVaRFKauFu5NVbMJ8O0yaCRlBJZ&currency=USD"></script>
+
+</head>
+<body>
+    <div class="container mt-5 mb-5">
+        <form id="bookingForm">
+            <div class="step mb-4 mt-2">
+                <h2>AVAILABILITY</h2>
+                <p>IMPORTANT: You must enter your ZIP code to view our available date & times</p>
+                <input class="form-control" type="text" name="zip" id="zip" placeholder="Enter Zip Code For Availability">
+            </div>
+
+            <hr class="my-3 hr-custom">
+
+            <div class="step mb-4" id="step1">
+                <h2>SERVICE TYPE</h2>
+                <p><a href="#">Click Here</a> to see our cleaning checklist</p>
+                <div class="form-group">
+                    <label for="serviceType">Select Service</label>
+                    <select class="form-control" id="serviceType" required>
+                        <option value="">Select a service</option>
+                        <option value="houseCleaning">House Cleaning</option>
+                        <option value="officeCleaning">Office Cleaning</option>
+                        
+                    </select>
+                </div>
+            </div>
+
+            <hr class="my-3 hr-custom">
+
+            <div class="step mb-4" id="step2">
+                <h2>PROPERTY DETAILS</h2>
+                <p class="mt-3">Don't know the square footage of your home?<a href="#"> CLICK HERE</a> to find out.</p>
+                <!-- Add fields for bedrooms, bathrooms, square footage -->
+                <div id="customDropdown"></div>
+                <div class="row col-md-12">
+                    <select class="form-control col-md-6 mb-2" id="blabla" required>
+                        <option value="">House Cleaning</option>
+                    </select>
+                    <select class="form-control col-md-6 mb-2" id="squareFootageOption" required>
+                        <option value="">Select Square Footage</option>
+                        <option value="firstSq">500-1000 sq.ft</option>
+                        <option value="secondSq">1001-1500 sq.ft</option>
+                        <option value="thirdSq">1501-2000 sq.ft</option>
+                        <option value="fourthSq">2001-2500 sq.ft</option>
+                        <option value="fifthSq">2501-3000 sq.ft</option>
+                        <option value="sixthSq">3001-3500 sq.ft</option>
+                        <option value="seventhSq">3501-4000 sq.ft</option>
+                        <option value="eighthSq">4001-4500 sq.ft</option>
+                        <option value="ninthSq">4501-5000 sq.ft</option>
+                        <option value="tenthSq">5001-5500 sq.ft</option>
+                        <option value="eleventhSq">5501+ sq.ft</option>
+                    </select>
+
+                </div>
+                <div class="row col-md-12">
+                    <select class="form-control col-md-6 mb-2" id="bedroomsOption" required>
+                        <option value="">Select Bedrooms</option>
+                        <option value="oneBedroom">1 Bedrooms</option>
+                        <option value="twoBedroom">2 Bedrooms</option>
+                        <option value="threeBedroom">3 Bedrooms</option>
+                        <option value="fourBedroom">4 Bedrooms</option>
+                        <option value="fiveBedroom">5 Bedrooms</option>
+                        <option value="sixBedroom">6 Bedrooms</option>
+                        <option value="sevenBedroom">7 Bedrooms</option>
+                        <option value="eightBedroom">8 Bedrooms</option>
+                        <option value="nineBedroom">9 Bedrooms</option>
+                    </select>
+                    <select class="form-control col-md-6 mb-2" id="bathroomsOption" required>
+                        <option value="">Select Bathrooms</option>
+                        <option value="oneBathroom">1 Bathroom</option>
+                        <option value="twoBathroom">2 Bathroom</option>
+                        <option value="threeBathroom">3 Bathroom</option>
+                        <option value="fourBathroom">4 Bathroom</option>
+                        <option value="fiveBathroom">5 Bathroom</option>
+                        <option value="sixBathroom">6 Bathroom</option>
+                        <option value="sevenBathroom">7 Bathroom</option>
+                        <option value="eightBathroom">8 Bathroom</option>
+                        <option value="nineBathroom">9 Bathroom</option>
+                    </select>
+
+                </div>
+                <div class="row col-md-12">
+                    <select class="form-control col-md-6 mb-2" id="halfOption" required>
+                        <option value="">Select Half-Baths</option>
+                        <option value="oneHalf">1 Half-Baths</option>
+                        <option value="twoHalf">2 Half-Baths</option>
+                        <option value="threeHalf">3 Half-Baths</option>
+                        <option value="fourHalf">4 Half-Baths</option>
+                        <option value="fiveHalf">5 Half-Baths</option>
+                        <option value="sixHalf">6 Half-Baths</option>
+                    </select>
+                    <select class="form-control col-md-6 mb-2" id="basementOption" required>
+                        <option value="">Select Basement</option>
+                        <option value="basementFirst">Basement with no Bathroom (<500 sqft) </option>
+                        <option value="basementSecond">Basement with no Bathroom (500-1000sqft)</option>
+                        <option value="basementThird">Basement with no Bathroom(>1000sqft)</option>
+                        <option value="basementFourth">Basement with Bathroom (<500 sqft) </option>
+                        <option value="basementFifth">Basement with Bathroom (500-1000sqft)</option>
+                        <option value="basementSixth">Basement with Bathroom (>1000sqft) </option>
+                    </select>
+
+                </div>
+               
+            </div>
+
+            <hr class="my-3 hr-custom">
+
+            <div class=" mb-3">
+                <h2>CLEANING FREQUENCY</h2>
+                <p class="mt-3">It's all about matching you with the perfect clean & frequency for your home.<br><br>Save BIG by selecting recurring service!</p>
+                <div class="d-flex flex-wrap justify-content-center">
+                    <label class="selectable-card mx-2">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">One-Time</h5>
+                            <input type="radio" name="cleaningFrequency" value="oneTime" checked>
+                        </div>
+                    </label>
+                    <label class="selectable-card mx-2">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Every Week</h5>
+                            <input type="radio" name="cleaningFrequency" value="weekly">
+                        </div>
+                    </label>
+                    <label class="selectable-card mx-2">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Every Two Weeks</h5>
+                            <input type="radio" name="cleaningFrequency" value="biweekly">
+                        </div>
+                    </label>
+                    <label class="selectable-card mx-2">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Every 4 Weeks</h5>
+                            <input type="radio" name="cleaningFrequency" value="monthly">
+                        </div>
+                    </label>
+                </div>
+                
+            </div>
+            
+            <hr class="my-3 hr-custom">
+
+            <div class="step mb-4" id="step3">
+                <h2>EXTRAS</h2>
+                <p>Select Any Extras Needed</p>
+                <div class="extras-section" id="houseCleaningExtras">
+
+                    <div class="row mt-3">
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="standardClean" data-toggle="tooltip" title="Select this package if minimal cleaning is required for your property to keep it in good shape">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/clean.png" alt="clean"/>
+                                    <h5 class="card-title">Standard Clean</h5>
+                                    <input type="checkbox" name="cleaningOption" value="standardClean">
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div class="col-md-2 mb-2">
+                            
+                            <label class="selectable-card" data-cleaning-option="deepClean" data-toggle="tooltip" title="If your property has not been professionally cleanedin over 2 months, we strongly recommend a deep cleaning for the first visit in order to get your home prepared for ongoing maintenance. Deep cleaning adds on extra time and additional checklist items, including outside of cabinets , baseboards, light switches , door frames & handles, and extra time for the tub/shower(s)">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/broom.png" alt="broom"/>
+                                    <h5 class="card-title">Deep Cleaning</h5>
+                                    <input type="checkbox" name="cleaningOption" value="deepClean" >
+                                </div>
+                            </label>
+                         
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="airbnbClean" data-toggle="tooltip" title="Cleaning catered towards AirBnB properties, with a focus on presentation, detailed cleaning, and hotel-style hospitality">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/airbnb.png" alt="airbnb"/>
+                                    <h5 class="card-title">Airbnb Cleaning</h5>
+                                    <input type="checkbox" name="cleaningOption" value="airbnbClean" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="moveIn" data-toggle="tooltip" title="Cleaning all corners and surface areas of your home for a fresh new beginning. Please make sure no furniture is in the way.">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/country-house.png" alt="country-house"/>
+                                    <h5 class="card-title">Move In/Out</h5>
+                                    <input type="checkbox" name="cleaningOption" value="moveIn" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="renovationClean" data-toggle="tooltip" title="Select this option if your home has undergone renovation. This add on will include the Deep Clean checklist items as well as extra attention to detail needed to account for dusted areas. ">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/external-goofy-line-kerismaker/50/external-Renovation-real-estate-goofy-line-kerismaker.png" alt="external-Renovation-real-estate-goofy-line-kerismaker"/>
+                                    <h5 class="card-title">Renovation Cleaning</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="renovationClean" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="rentalProperty">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/sell-property--v2.png" alt="sell-property--v2"/>
+                                    <h5 class="card-title">Rental Property</h5>
+                                    <input type="checkbox" name="cleaningOption" value="rentalProperty" >
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="homeStaging">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/home--v1.png" alt="home--v1"/>
+                                    <h5 class="card-title">Home Staging</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="homeStaging" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="studentHousing" data-toggle="tooltip" title="Please select this option if the property requested to be cleaned is (or has been) occupied by students. This is a Deep Clean">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/student-center.png" alt="student-center"/>
+                                    <h5 class="card-title">Student Housing</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="studentHousing" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="sanitizingHouse" data-toggle="tooltip" title="Disinfecting of frequently touched surfaces, including door knobs, handles, and frequently touched surfaces">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/external-others-pike-picture/50/external-Antiviral-Sanitization-cleaning-others-pike-picture.png" alt="external-Antiviral-Sanitization-cleaning-others-pike-picture"/>
+                                    <h5 class="card-title">Sanitizing House</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="sanitizingHouse" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="insideFridge" data-toggle="tooltip" title="We deep clean your fridge interior and get rid of stubborn stains and odors. PLEASE make sure the fridge is empty on the day of your booking.">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/fridge.png" alt="fridge"/>
+                                    <h5 class="card-title">Inside the Fridge</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="insideFridge" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="insideOven" data-toggle="tooltip" title="We clean out the interior solids and grime. To ensure this feature is included, please ensure oven is sprayed with easy-off oven cleaner the night before the clean">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/50/external-oven-appliances-kiranshastry-lineal-kiranshastry.png" alt="external-oven-appliances-kiranshastry-lineal-kiranshastry"/>
+                                    <h5 class="card-title">Inside the Oven</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="insideOven" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="insideCabinets" data-toggle="tooltip" title="Cleaning and wiping interior cabinets/drawers within the kitchen. Select the number of walls that contain cabinets in the kitchen (bathroom cabinets are included in the Deep Clean package)">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/pastel-glyph/50/cabinet--v2.png" alt="cabinet--v2"/>
+                                    <h5 class="card-title">Inside Cabinets</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="insideCabinets" >
+                                </div>
+                            </label>
+                        </div>
+            
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="sofaClean">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/sofa.png" alt="sofa"/>
+                                    <h5 class="card-title">Sofa Cleaning</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="sofaClean" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="wainscotClean">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/pastel-glyph/64/building.png" alt="building"/>
+                                    <h5 class="card-title">Wainscot Cleaning</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="wainscotClean" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="balconyClean">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/balcony.png" alt="balcony"/>
+                                    <h5 class="card-title">Balcony Cleaning</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="balconyClean" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="dishwasherClean" data-toggle="tooltip" title="Dishes will be loaded into dishwasher in an organized fashion">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/dishwasher.png" alt="dishwasher"/>
+                                    <h5 class="card-title">Load Dishwasher</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="dishwasherClean" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="interiorWindows" data-toggle="tooltip" title="Cleaning and wiping stains from windows inside home">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/closed-window.png" alt="closed-window"/>
+                                    <h5 class="card-title">Interior Windows</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="interiorWindows" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="makingBeds" data-toggle="tooltip" title="Bed sheets will be replaced with new ones, dirty sheets will be loaded in the laundry. Please have your new sheets ready, and provide laundry instructions.">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/bed.png" alt="bed"/>
+                                    <h5 class="card-title">Making the Beds</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="makingBeds" >
+                                </div>
+                            </label>
+                        </div>
+           
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="blindsClean" data-toggle="tooltip" title="Dust and wipe dirt from window blinds">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/blind-down--v1.png" alt="blind-down--v1"/>
+                                    <h5 class="card-title">Blinds Cleaning</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="blindsClean" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="havePets" data-toggle="tooltip" title="(extra cleaning is required for homes with pets)">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/pets--v1.png" alt="pets--v1"/>
+                                    <h5 class="card-title">I have pets at home</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="havePets" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="greenClean">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/pulsar-line/50/cleaning-service.png" alt="cleaning-service"/>
+                                    <h5 class="card-title">Green Cleaning</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="greenClean" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="kitchenClean">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/kitchen-room.png" alt="kitchen-room"/>
+                                    <h5 class="card-title">Kitchen Cleaning</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="kitchenClean" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="garageClean">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/garage.png" alt="garage"/>
+                                    <h5 class="card-title">Garage Sweeping</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="garageClean" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="fanClean">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/ceiling-fan-on.png" alt="ceiling-fan-on"/>
+                                    <h5 class="card-title">Ceiling fan Cleaning</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="fanClean" >
+                                </div>
+                            </label>
+                        </div>
+    
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="waterPlants">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/external-outline-berkahicon/50/external-Water-Plants-lawn-care-outline-berkahicon.png" alt="external-Water-Plants-lawn-care-outline-berkahicon"/>
+                                    <h5 class="card-title">Water Plants</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="waterPlants" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="washerClean">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/ios/50/washing.png" alt="washing"/>
+                                    <h5 class="card-title">Washer Cleaning</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="washerClean" >
+                                </div>
+                            </label>
+                        </div>     
+                    </div>
+                </div>
+                <div class="extras-section" id="officeCleaningExtras" style="display: none;">
+
+                    <div class="row mt-3">
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="smallStore" data-toggle="tooltip" title="Priced at 5 cents per square feet">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/color/50/small-business.png" alt="small-business"/>
+                                    <h5 class="card-title">Small Store (<3500sqft)</h5>
+                                    <input type="checkbox" name="cleaningOption" value="smallStore">
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div class="col-md-2 mb-2">
+                            
+                            <label class="selectable-card" data-cleaning-option="mediumStore" data-toggle="tooltip" title="Priced at 4 cents per square feet">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/emoji/50/convenience-store.png" alt="convenience-store"/>
+                                    <h5 class="card-title">Medium-Large Store (3500-7000sqft)</h5>
+                                    <input type="checkbox" name="cleaningOption" value="mediumStore" >
+                                </div>
+                            </label>
+                         
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="officeBuilding" data-toggle="tooltip" title="Priced at 3 cents per square feet">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/emoji/48/office-building.png" alt="office-building"/>
+                                    <h5 class="card-title">Office Building (10,000+sqft)</h5>
+                                    <input type="checkbox" name="cleaningOption" value="officeBuilding" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="commercialBuilding" data-toggle="tooltip" title="Priced at 2 cents per square feet">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/external-filled-color-icons-papa-vector/50/external-Commercial-Property-insurance-filled-color-icons-papa-vector.png" alt="external-Commercial-Property-insurance-filled-color-icons-papa-vector"/>
+                                    <h5 class="card-title">Commercial Property</h5>
+                                    <input type="checkbox" name="cleaningOption" value="commercialBuilding" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="sanitizingPackage" data-toggle="tooltip" title="Extra disinfection of all hot spot and high traffic areas, such as door knobs, light switches, fixtures, armrests, desks, phone handles, bathroom faucets, and tables. Priced at 5 cents per square footage">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/external-others-pike-picture/50/external-Sanitization-cleaning-others-pike-picture.png" alt="external-Sanitization-cleaning-others-pike-picture"/>
+                                    <h5 class="card-title">Sanitization Package</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="sanitizingPackage" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="carpetSteam" data-toggle="tooltip" title="Priced at 20 cents per carpeted square footage area. (if you're not sure of the size of flooring, select this option and we will contact you during our visit)">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/color/48/carpet-cleaning.png" alt="carpet-cleaning"/>
+                                    <h5 class="card-title">Carpet Steam Cleaning Package</h5>
+                                    <input type="checkbox" name="cleaningOption" value="carpetSteam" >
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="tileSteam" data-toggle="tooltip" title="Priced at 20 cents per square feet of tile (if you're not sure of the size of flooring, select this option and we will contact you during our visit)">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/external-flatart-icons-lineal-color-flatarticons/50/external-steaming-hotel-services-flatart-icons-lineal-color-flatarticons.png" alt="external-steaming-hotel-services-flatart-icons-lineal-color-flatarticons"/>
+                                    <h5 class="card-title">Tile Steam Cleaning Package</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="tileSteam" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="numberBathrooms">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/color/48/wc.png" alt="wc"/>
+                                    <h5 class="card-title">Number of Bathrooms </h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="numberBathrooms" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="numberShower">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/fluency/48/shower.png" alt="shower"/>
+                                    <h5 class="card-title">Number of Shower Rooms</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="numberShower" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="numberKitchen" data-toggle="tooltip" title="Counter-tops, oven-tops, floors, cabinets, and outside fridge, outside and inside microwave, and toaster">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/officel/50/kitchen-room.png" alt="kitchen-room"/>
+                                    <h5 class="card-title">Number of Kitchens</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="numberKitchen" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="restockSupply">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/50/external-hand-soap-bathroom-kiranshastry-lineal-color-kiranshastry.png" alt="external-hand-soap-bathroom-kiranshastry-lineal-color-kiranshastry"/>
+                                    <h5 class="card-title">Restock Bathroom Supply</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="restockSupply" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="elecSanitization">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/color/48/workstation.png" alt="workstation"/>
+                                    <h5 class="card-title">Electronics Sanitization</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="elecSanitization" >
+                                </div>
+                            </label>
+                        </div>
+            
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="emptyGarbage">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/color/48/waste--v1.png" alt="waste--v1"/>
+                                    <h5 class="card-title">Empty Garbage/Recycling</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="emptyGarbage" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="plantsWater">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/fluency/48/plant-under-sun.png" alt="plant-under-sun"/>
+                                    <h5 class="card-title">Water Plants</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="plantsWater" >
+                                </div>
+                            </label>
+                        </div>
+                        <div class="col-md-2 mb-2">
+                            <label class="selectable-card" data-cleaning-option="deepFirst">
+                                <div class="card-body">
+                                    <img width="50" height="50" src="https://img.icons8.com/external-flatart-icons-lineal-color-flatarticons/64/external-cleaning-spray-wash-hands-flatart-icons-lineal-color-flatarticons-1.png" alt="external-cleaning-spray-wash-hands-flatart-icons-lineal-color-flatarticons-1"/>
+                                    <h5 class="card-title">Deep Cleaning (First Visit)</h5>
+                                    
+                                    <input type="checkbox" name="cleaningOption" value="deepFirst" >
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-3 hr-custom">
+                <section>
+                    <div class="step" id="step8">
+                        <h2 class="mb-3">SELECT AN OPTION</h2>
+                    
+                        <!-- Housing Type -->
+                        <h3>Housing Type</h3>
+                        <div class="form-group d-flex">
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="home" id="housingHome">
+                                <label class="form-check-label" for="housingHome">
+                                    Home
+                                </label>
+                            </div>
+                            <div class="form-check ml-3">
+                                <input class="form-check-input" type="checkbox" value="condo" id="housingCondo">
+                                <label class="form-check-label" for="housingCondo">
+                                    Condo
+                                </label>
+                            </div>
+                            <div class="form-check ml-3">
+                                <input class="form-check-input" type="checkbox" value="apartment" id="housingApartment">
+                                <label class="form-check-label" for="housingApartment">
+                                    Apartment
+                                </label>
+                            </div>
+                        </div>
+                    
+                        <!-- How did you hear about us -->
+                        <h3>How did you hear about us?</h3>
+                        <div class="row">
+                            <div class="form-check ml-3">
+                                <input class="form-check-input" type="checkbox" value="socialMedia" id="socialMedia">
+                                <label class="form-check-label" for="socialMedia">
+                                    Google
+                                </label>
+                            </div>
+                            <div class="form-check ml-3">
+                                <input class="form-check-input" type="checkbox" value="yelp" id="yelp">
+                                <label class="form-check-label" for="yelp">
+                                    Yelp
+                                </label>
+                            </div>
+                            <div class="form-check ml-3">
+                                <input class="form-check-input" type="checkbox" value="facebook" id="facebook">
+                                <label class="form-check-label" for="facebook">
+                                    Facebook
+                                </label>
+                            </div>
+                            <div class="form-check ml-3">
+                                <input class="form-check-input" type="checkbox" value="craigslist" id="craigslist">
+                                <label class="form-check-label" for="craigslist">
+                                    Craigslist
+                                </label>
+                            </div>
+                            <div class="form-check ml-3">
+                                <input class="form-check-input" type="checkbox" value="emailText" id="emailText">
+                                <label class="form-check-label" for="emailText">
+                                    Email/Text Offer
+                                </label>
+                            </div>
+                        
+                          
+                        </div>
+                        <div class="row mb-3">
+                            <div class="form-check ml-3">
+                                <input class="form-check-input" type="checkbox" value="repeatCustomer" id="repeatCustomer">
+                                <label class="form-check-label" for="repeatCustomer">
+                                    Repeat Customer
+                                </label>
+                            </div>
+                            <br>
+                            <div class="form-check ml-3">
+                                <input class="form-check-input" type="checkbox" value="friendRefferal" id="friendRefferal">
+                                <label class="form-check-label" for="friendRefferal">
+                                    Friend Referral
+                                </label>
+                            </div>
+                            <div class="form-check ml-3">
+                                <input class="form-check-input" type="checkbox" value="nextDoor" id="nextDoor">
+                                <label class="form-check-label" for="nextDoor">
+                                    Next Door
+                                </label>
+                            </div>
+                            <div class="form-check ml-3">
+                                <input class="form-check-input" type="checkbox" value="homeAdvisor" id="homeAdvisor">
+                                <label class="form-check-label" for="homeAdvisor">
+                                    Home Advisor
+                                </label>
+                            </div>
+                            <div class="form-check ml-3">
+                                <input class="form-check-input" type="checkbox" value="offerUp" id="offerUp">
+                                <label class="form-check-label" for="offerUp">
+                                    Offer Up
+                                </label>
+                            </div>
+                        </div>
+                    
+                        <!-- Cash Payment Option -->
+                        <div class="form-group">
+                            <h3>Would you like to pay in cash & get an extra 5% discount?</h3>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="cashPayment" value="yes" id="cashPaymentYes">
+                                <label class="form-check-label" for="cashPaymentYes">
+                                    Yes, please
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="cashPayment" value="no" id="cashPaymentNo" checked>
+                                <label class="form-check-label" for="cashPaymentNo">
+                                    No, I would like to pay with credit card
+                                </label>
+                            </div>
+                        </div>
+
+                        <h3>Important: Cannot Combine 2 Promotions Or Discounts. Only 1 Discount Per Cleaning Appointment.</h3>
+                        <div class="form-group d-flex">
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="understand" id="understand">
+                                <label class="form-check-label" for="understand">
+                                    I understand
+                                </label>
+                            </div>
+                        </div>
+
+                    
+                    </div>
+                    
+                </section>
+                <hr class="my-3 hr-custom">
+                <section>
+                    <h3 class="mt-3 text-center">TIP TO YOUR CLEANERS</h3>
+                    <div class="row mt-4 justify-content-center">
+                        <!-- Tip Option 1 -->
+                        <div class="custom-card selectable-card col-md-4 col-sm-6 col-12" onclick="toggleTipSelection(this)">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">0%</h5>
+                            </div>
+                        </div>
+                
+                        <!-- Tip Option 2 -->
+                        <div class="custom-card selectable-card col-md-4 col-sm-6 col-12" onclick="toggleTipSelection(this)">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">10%</h5>
+                            </div>
+                        </div>
+                
+                        <!-- Tip Option 3 -->
+                        <div class="custom-card selectable-card col-md-4 col-sm-6 col-12" onclick="toggleTipSelection(this)">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">15%</h5>
+                            </div>
+                        </div>
+                
+                        <!-- Tip Option 4 -->
+                        <div class="custom-card selectable-card col-md-4 col-sm-6 col-12" onclick="toggleTipSelection(this)">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">20%</h5>
+                            </div>
+                        </div>
+                
+                        <!-- Other Option -->
+                        <div class="custom-card selectable-card col-md-4 col-sm-6 col-12" onclick="toggleTipSelection(this)">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Other</h5>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <hr class="my-3 hr-custom">
+                <div class="step mt-3" id="step8">
+                    <h2>APPLY DISCOUNT CODE</h2>
+                    <h5>If you have a discount, referral, or gift card code, enter it here.</h5>
+                    <div class="row mt-3 mb-3">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="discountCode" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <button type="button" class="btn btn-primary btn-block" id="applyDiscount">Apply</button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <hr class="my-3 hr-custom">
+                
+
+                <div class="step mb-4" id="step6">
+                    <h2>CONTACT INFORMATION</h2>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="tel" class="form-control" id="phoneNumber" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                
+              
+            </div>
+            <hr class="my-3 hr-custom">
+            <div class="step mb-4" id="step4">
+                <h2>PROPERTY ADDRESS</h2>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="suite">App/Suite #</label>
+                        <input type="text" class="form-control" id="suite">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="province">Province</label>
+                        <select class="form-control" id="province" required>
+                            <option value="">Select province</option>
+                            <!-- Add options for provinces here -->
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="zip">Zip/Postal Code</label>
+                        <input type="text" class="form-control" id="zip" required>
+                    </div>
+                </div>
+                <!-- Add fields for address -->
+
+            </div>
+            <hr class="my-3 hr-custom">
+            <div class="step mb-4" id="step5">
+                <h2>DATE AND TIME</h2>
+                <p>Choose the date & arrival window. If you need a last-minute appointment, give us a call at <a href="#">425-786-1360</a></p>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="text" class="form-control" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time</label>
+                    <input type="text" class="form-control" id="time" required>
+                </div>
+          
+            </div>
+            <hr class="my-3 hr-custom">
+
+            <div class="step" id="step8">
+                <h2>KEY INFORMATION & JOB NOTES</h2>
+                
+                <!-- Row for Cards -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="key-info">
+                            <!-- Selectable Card 1 -->
+                            <div class="custom-card selectable-card" onclick="toggleCardSelection(this)">
+                                <div class="card-body">
+                                    <h5 class="card-title">Someone will be at Home</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="key-info">
+                            <!-- Selectable Card 2 -->
+                            <div class="custom-card selectable-card" onclick="toggleCardSelection(this)">
+                                <div class="card-body">
+                                    <h5 class="card-title">I will hide the keys</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="keepKeyCheckbox">
+                            <label class="form-check-label" for="keepKeyCheckbox">
+                                <h5>Keep Key with Provider</h5>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Row for Job Notes -->
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="job-notes mb-5">
+                            <h3>Customer Note for Provider</h3>
+                            <textarea class="form-control" id="specialNotes" name="specialNotes" placeholder="Special Notes and Instructions"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <h5>Do you have a service time restriction?</h5>
+                <div class="row">
+                    <div class="d-flex flex-wrap justify-content-center">
+                        <label class="selectable-card mx-2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Not flexible at all</h5>
+                                <input type="radio" name="" value="" checked>
+                            </div>
+                        </label>
+                        <label class="selectable-card mx-2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Same day is fine</h5>
+                                <input type="radio" name="" value="">
+                            </div>
+                        </label>
+                        <label class="selectable-card mx-2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Next day is fine</h5>
+                                <input type="radio" name="" value="">
+                            </div>
+                        </label>
+                        <label class="selectable-card mx-2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Same week is fine</h5>
+                                <input type="radio" name="" value="">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            
+            <hr class="my-3 hr-custom">
+            <div id="safety-container">
+                <div>
+                    <img width="30" height="30" src="https://img.icons8.com/emoji/20/smiling-face-with-smiling-eyes.png" alt="smiling-face-with-smiling-eyes"/>
+                    <h4>200$ SATISFACTION GUARANTEE</h4>
+                    <p>In the rare chance that you aren't 100% satisfied with your cleaning, let us know within 24 hours and we'll be back to make things right.</p>
+                </div>
+                <div class="mt-4">
+                    <img width="30" height="30" src="https://img.icons8.com/cotton/30/like--v1.png" alt="like--v1"/>
+                    <h4>LIVING WAGE PROVIDER</h4>
+                    <p>Our teams are partners in success. We are a committed living wage provider and aim to make a positive impact on the communities we serve.</p>
+                </div>
+                <div class="mt-4">
+                    <img width="30" height="30" src="https://img.icons8.com/emoji/48/shield-emoji.png" alt="shield-emoji"/>
+                    <h4>SAFETY FIRST</h4>
+                    <p>We are insured and rigorously vet all of our cleaning associates, who undergo background checks, regular quality-assurance reviews, and cleaning safety guidelines.</p>
+                </div>
+                <div class="mt-4">
+                    <img width="30" height="30" src="https://img.icons8.com/arcade/30/phone.png" alt="phone"/>
+                    <h4>24/7 CUSTOMER SUPPORT</h4>
+                    <p>Have questions? We're committed to the best customer service in the industry. Reach out to us via phone, email, chat, or log in to your booking and leave us a message.</p>
+                </div>
+                <div class="mt-4">
+                    <img width="30" height="30" src="https://img.icons8.com/emoji/48/credit-card-emoji.png" alt="credit-card-emoji"/>
+                    <h4>SECURE PAYMENT</h4>
+                    <p>Payment is only processed after your service has been completed. Cancel anytime up to 24 hours before your service with no fee.</p>
+                </div>
+            </div>
+            <div id="payment-step-container">
+
+                <div class="step" id="step7">
+                    <h2>PAYMENT</h2>
+                    <div class="summary-container">
+                        <h3>SERVICE SUMMARY</h3>
+                        <span>Powered by : <a href="#">Booking Coala</a></span>
+                        <hr class="my-3 hr-custom">
+                        <ul id="summary-list">
+                            <!-- Your summary items go here -->
+                        </ul>
+                        <hr class="my-3 hr-custom">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4>Total Price</h4>
+                            <h4 id="totalPrice">$0</h4>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6>Recurring Price</h6>
+                            <h6 id="recurringPrice">$0</h6>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <div id="paypal-button-container" class="mt-5"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function toggleOptionsVisibility(serviceType) {
+            if (serviceType === "officeCleaning") {
+                $("#bedroomsOption, #bathroomsOption, #squareFootageOption, #halfBaths, #basementOption, #blabla").prop('disabled', true);
+                $("#bedroomsOption, #bathroomsOption, #squareFootageOption, #halfBaths, #basementOption, #blabla").hide();
+            } else {
+                $("#bedroomsOption, #bathroomsOption, #squareFootageOption, #halfBaths, #basementOption, #blabla").prop('disabled', false);
+                $("#bedroomsOption, #bathroomsOption, #squareFootageOption, #halfBaths, #basementOption, #blabla").show();
+            }
+        }
+
+        // Call the function on change of service type dropdown
+        $("#serviceType").on("change", function () {
+            const selectedServiceType = $(this).val();
+            toggleOptionsVisibility(selectedServiceType);
+        });
+        function changeOptions(serviceType) {
+            if (serviceType === "officeCleaning") {
+                $("#customDropdown").html(`
+                    <select class="form-control col-md-6 mb-2" id="serviceType" required>
+                        <option value="officeCleaning">Office Cleaning</option>
+                    </select>
+                `);
+            } else {
+                $("#customDropdown").html(""); // Clear the custom dropdown when other options are selected
+            }
+        }
+
+        // Call the function on change of service type dropdown
+        $("#serviceType").on("change", function() {
+            const selectedServiceType = $(this).val();
+            changeOptions(selectedServiceType);
+        });
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        
+        $('#serviceType').on('change', function() {
+            const selectedServiceType = $(this).val();
+            
+            // Hide all extras sections
+            $('.extras-section').hide();
+            
+            // Show the extras section corresponding to the selected service type
+            $(`#${selectedServiceType}Extras`).show();
+            console.log(selectedServiceType);
+        });
+
+        function toggleTipSelection(card) {
+            $('.selectable-card').removeClass('selected');
+            $(card).toggleClass('selected');
+            updateTotalPrice();
+        }
+
+        const serviceType = $('#serviceType').val();
+
+        if (serviceType === 'houseCleaning') {
+            $('#bedroomsOption').val('oneBedroom');
+        } else if (serviceType === 'officeCleaning') {
+            $('#squareFootageOption').val('firstSq');
+        }
+
+
+
+
+        function updateSummary() {
+            const summaryList = $('#summary-list');
+
+            // Clear previous summary
+            summaryList.empty();
+
+            // Add selected service type
+            const serviceType = $('#serviceType option:selected').text(); // Get the selected option's label
+            if (serviceType) {
+                summaryList.append(`<li>Service Type: ${serviceType}</li>`);
+            }
+
+            // Add selected bedrooms option
+            const bedroomsOption = $('#bedroomsOption option:selected').text();
+            if (bedroomsOption) {
+                summaryList.append(`<li>Bedrooms: ${bedroomsOption}</li>`);
+            }
+
+            const halfOption = $('#halfOption option:selected').text();
+            if (halfOption) {
+                summaryList.append(`<li>Bedrooms: ${halfOption}</li>`);
+            }
+
+            const basementOption = $('#basementOption option:selected').text();
+            if (basementOption) {
+                summaryList.append(`<li>Basement: ${basementOption}</li>`);
+            }
+
+            // Add selected bathrooms option
+            const bathroomsOption = $('#bathroomsOption option:selected').text();
+            if (bathroomsOption) {
+                summaryList.append(`<li>Bathrooms: ${bathroomsOption}</li>`);
+            }
+
+            // Add selected square footage option
+            const squareFootageOption = $('#squareFootageOption option:selected').text();
+            if (squareFootageOption) {
+                summaryList.append(`<li>Square Footage : ${squareFootageOption}</li>`);
+            }
+
+            // Add selected cleaning options
+            $('input[name="cleaningOption"]:checked').each(function() {
+                const option = $(this).closest('.selectable-card').find('.card-title').text();
+                summaryList.append(`<li>Cleaning Option: ${option}</li>`);
+            });
+
+            // Add selected cleaning frequency
+            const cleaningFrequency = $('input[name="cleaningFrequency"]:checked').next('label').text();
+            if (cleaningFrequency) {
+                summaryList.append(`<li>Cleaning Frequency: ${cleaningFrequency}</li>`);
+            }
+
+            // Add discount code if entered
+            const discountCode = $('#discountCode').val();
+            if (discountCode) {
+                summaryList.append(`<li>Discount Code: ${discountCode}</li>`);
+            }
+        }
+
+        
+
+        function toggleCardSelection(card) {
+            $(card).toggleClass('selected'); // Toggle the class on the clicked card
+            updateTotalPrice();
+            updateSummary();
+        }
+
+        const cleaningOptionPrices = {
+            tileSteam: 100,
+            carpetSteam: 100,
+            sanitizingPackage: 25,
+            plantsWater: 10,
+            emptyGarbage: 0,
+            elecSanitization: 50,
+            restockSupply: 19,
+            numberKitchen: 40,
+            numberShower: 50,
+            numberBathrooms: 30,
+            deepFirst: 99,
+            commercialBuilding: 200,
+            officeBuilding: 160,
+            mediumStore: 280,
+            smallStore: 140,
+            standardClean: 25,
+            deepClean: 98,
+            airbnbClean: 35,
+            houseCleaning: 20,
+            officeCleaning: 30,
+            carpetCleaning: 30,
+            oneBedroom: 45,
+            twoBedroom: 65,
+            threeBedroom: 85,
+            fourBedroom: 105,
+            fiveBedroom: 125,
+            sixBedroom: 150,
+            sevenBedroom: 175,
+            eightBedroom: 200,
+            nineBedroom: 225,
+            oneBathroom: 35,
+            twoBathroom: 70,
+            threeBathroom: 105,
+            fourBathroom: 140,
+            fiveBathroom: 175,
+            sixBathroom: 210,
+            sevenBathroom: 245,
+            eightBathroom: 280,
+            nineBathroom: 315,
+            oneHalf: 17,
+            twoHalf: 34,
+            threeHalf: 51,
+            fourHalf: 68,
+            fiveHalf: 85,
+            sixHalf: 102,
+            basementFirst: 33,
+            basementSecond: 43,
+            basementThird: 53,
+            basementFourth: 70,
+            basementFifth: 83,
+            basementSixth: 95,
+            firstSq: 100,
+            secondSq: 200,
+            thirdSq: 300,
+            fourthSq: 400,
+            fifthSq: 500,
+            sixthSq: 600,
+            seventhSq: 700,
+            eighthSq: 800,
+            ninthSq: 900,
+            tenthSq: 1000,
+            eleventhSq: 1100,
+            moveIn: 139,
+            renovationClean: 179,
+            rentalProperty: 60,
+            homeStaging: 40,
+            studentHousing: 35,
+            sanitizingHouse: 25,
+            insideFridge: 34,
+            insideOven: 34,
+            insideCabinets: 10,
+            sofaClean: 45,
+            wainscotClean: 15,
+            balconyClean: 15,
+            dishwasherClean: 34,
+            interiorWindows: 6,
+            makingBeds: 7,
+            blindsClean: 8,
+            havePets: 20,
+            greenClean: 15,
+            kitchenClean: 60,
+            garageSweeping: 20,
+            fanClean: 7,
+            waterPlants: 5,
+            washerCleaning: 15,
+    
+        };
+
+
+        function calculateTotalPrice() {
+            let totalPrice = 0;
+
+            // Calculate based on selected service type
+            const serviceType = $('#serviceType').val();
+            totalPrice += cleaningOptionPrices[serviceType] || 0;
+
+            // Calculate based on selected bedrooms
+            const bedroomsOption = $('#bedroomsOption').val();
+            totalPrice += cleaningOptionPrices[bedroomsOption] || 0;
+
+            // Calculate based on selected bathrooms
+            const bathroomsOption = $('#bathroomsOption').val();
+            totalPrice += cleaningOptionPrices[bathroomsOption] || 0;
+
+            // Calculate based on selected square footage
+            const squareFootageOption = $('#squareFootageOption').val();
+            totalPrice += cleaningOptionPrices[squareFootageOption] || 0;
+
+            const halfOption = $('#halfOption').val();
+            totalPrice += cleaningOptionPrices[halfOption] || 0;
+
+            const basementOption = $('#basementOption').val();
+            totalPrice += cleaningOptionPrices[basementOption] || 0;
+
+            // Calculate based on selected cleaning option
+            $('input[name="cleaningOption"]:checked').each(function() {
+                const option = $(this).val();
+                totalPrice += cleaningOptionPrices[option] || 0;
+            });
+            
+             if ($('#cashPaymentYes').is(':checked')) {
+                totalPrice *= 0.95;
+            }
+
+            console.log(totalPrice);
+
+            return totalPrice;
+
+            
+        }
+        
+        function applyTipToTotalPrice(totalPrice) {
+            const tipAmount = $('input[name="tipAmount"]:checked').val() || 0;
+            return totalPrice * (1 + parseFloat(tipAmount));
+        }
+
+        function applyCleaningFrequencyDiscount(totalPrice) {
+            const cleaningFrequency = $('input[name="cleaningFrequency"]:checked').val();
+
+            // Define discount percentages
+            const discounts = {
+                weekly: 0.25,    // 25% discount for Weekly
+                biweekly: 0.2,   // 20% discount for Biweekly
+                triweekly: 0.15, // 15% discount for Triweekly
+                monthly: 0.1     // 10% discount for Monthly
+            };
+
+            return totalPrice * (1 - (discounts[cleaningFrequency] || 0));
+        }
+        
+        $('#cashPaymentYes').change(function() {
+            updateTotalPrice(); // Call this function whenever the checkbox changes
+        });
+
+        $('input[name="cleaningFrequency"]').change(function() {
+            const totalPrice = calculateTotalPrice();
+            const discountedPrice = applyCleaningFrequencyDiscount(totalPrice);
+            $('#totalPrice').text(`$${discountedPrice}`);
+            updateSummary();
+        });
+
+
+        function updateTotalPrice() {
+            let totalPrice = calculateTotalPrice();
+            const discountedPrice = applyCleaningFrequencyDiscount(totalPrice);
+            const selectedTip = $('.selectable-card.selected h5').text().split(' ')[0];
+
+            if (selectedTip) {
+                const tipAmount = parseFloat(selectedTip) / 100;
+                const totalWithTip = discountedPrice * (1 + tipAmount);
+                $('#totalPrice').text(`$${totalWithTip.toFixed(2)}`);
+            } else {
+                $('#totalPrice').text(`$${discountedPrice}`);
+            }
+
+            const recurringPrice = applyRecurringDiscount(totalPrice);
+            $('#recurringPrice').text(`$${recurringPrice.toFixed(2)}`);
+        }
+
+
+        function applyRecurringDiscount(totalPrice) {
+            let recurringDiscountedPrice = totalPrice;
+
+            const selectedTip = $('.selectable-card.selected h5').text().split(' ')[0];
+            if (selectedTip) {
+                const tipAmount = parseFloat(selectedTip) / 100;
+                recurringDiscountedPrice *= (1 + tipAmount);
+            }
+
+            return recurringDiscountedPrice;
+        }
+
+
+
+        $('input[name="tipAmount"]').change(function() {
+            const totalPrice = calculateTotalPrice();
+            const totalWithTip = applyTipToTotalPrice(totalPrice);
+            $('#totalPrice').text(`$${totalWithTip}`);
+        });
+
+
+        $('#serviceType, #bedroomsOption, #bathroomsOption, #squareFootageOption, #basementOption, #halfOption, input[name="cleaningOption"]').change(function() {
+            updateTotalPrice();
+            updateSummary(); // Add this line
+        });
+
+        $('#discountCode').on('input', function() {
+            updateTotalPrice();
+            updateSummary(); // Add this line
+        });
+
+
+        $(document).ready(function() {
+            $('#date').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true
+            });
+
+            $('#time').timepicker({
+                timeFormat: 'h:i',
+                interval: 15,
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true
+            });
+
+            // Your existing code for form navigation
+            $(".nextStep").click(function() {
+                $(this).closest(".step").removeClass("show active").next().addClass("show active");
+            });
+
+            $(".prevStep").click(function() {
+                $(this).closest(".step").removeClass("show active").prev().addClass("show active");
+            });
+        });
+
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: $('#totalPrice').text().replace('$', '')
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('Transaction completed by ' + details.payer.name.given_name);
+                    // You can add additional handling here, like submitting the form.
+                });
+            },
+            onError: function(err) {
+                console.error(err);
+                alert('An error occurred during payment. Please try again.');
+            }
+        }).render('#paypal-button-container');
+    </script>
+</body>
+</html>

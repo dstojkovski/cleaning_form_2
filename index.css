@@ -1,0 +1,120 @@
+* {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+}
+div.card {
+    border: none;
+}
+
+.card-body {
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.card-body-free {
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    border: 1px solid lightblue; /* Add a border */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    padding: 20px; /* Add some padding for spacing */
+}
+
+#totalPriceContainer {
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    padding: 20px; /* Add some padding for spacing */
+    text-align: center;
+}
+
+.selectable-card {
+    cursor: pointer;
+}
+
+.selectable-card:hover .card-body {
+    transition: background-color 0.3s;
+    background-color: #4896e4; /* Change the background color on hover */
+}
+
+.selectable-card.selected .card-body {
+    transition: background-color 0.3s;
+    background-color: #237cca; /* Change the background color when selected */
+}
+
+.summary-container {
+    background-color: #f8f9fa; /* Set the background color */
+    padding: 20px; /* Add some padding */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add some border radius for rounded corners */
+    margin-bottom: 20px; /* Add some space at the bottom */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.hr-custom{
+    border-top: 1px solid blue;
+}
+
+.hidden-checkbox {
+    display: none;
+}
+
+/* Add this CSS to your stylesheet */
+#payment-step-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: #f8f9fa; /* Optional: Set the background color of the payment step */
+    width: 300px; /* Adjust the width as needed */
+    padding: 20px; /* Optional: Add padding for spacing */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+#safety-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    height: 100%;
+    background-color: #f8f9fa; /* Optional: Set the background color of the payment step */
+    width: 300px; /* Adjust the width as needed */
+    padding: 20px; /* Optional: Add padding for spacing */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        height: 100%;
+    }
+    /* Add styles for smaller screens */
+    #payment-step-container, #safety-container {
+        width: 100%; /* Adjust as needed */
+        position: static; /* Remove fixed positioning */
+    }
+    .selectable-card {
+        width: 100%; /* Set cards to full width for mobile */
+        margin-bottom: 10px; /* Add some spacing between cards */
+    }
+    .custom-card {
+        width: 100%;
+    }
+}
+
